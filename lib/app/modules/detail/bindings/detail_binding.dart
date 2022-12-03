@@ -3,14 +3,13 @@ import 'package:http/http.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:newmovie/app/domain/implementasi/movie_impl.dart';
 
-import '../controllers/home_controller.dart';
+import '../controllers/detail_controller.dart';
 
-class HomeBinding extends Bindings {
+class DetailBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<HomeController>(
-      () =>
-          HomeController(MovieImplament(Client()), InternetConnectionChecker()),
+    Get.put<DetailController>(
+      DetailController(MovieImplament(Client()),InternetConnectionChecker()),permanent: true
     );
   }
 }

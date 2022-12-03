@@ -4,58 +4,58 @@ import 'package:newmovie/app/data/model/production_country.dart';
 import 'package:newmovie/app/data/model/spoken_languages.dart';
 
 class MovieDetail {
-  final bool adult;
-  final String backdropPath;
+  final bool? adult;
+  final String? backdropPath;
   final String? belongsToCollection;
-  final int budget;
-  final List<Genre> genre;
-  final String homePage;
-  final int id;
-  final String imdbId;
-  final String originalLanguage;
-  final String originalTitle;
-  final String overview;
-  final double popularity;
-  final String posterPath;
-  final List<ProductionCompanies> productionCompanies;
-  final List<ProductionCountry> productionCountry;
-  final String releaseDate;
-  final int revenue;
-  final int runtime;
-  final List<SpokenLanggues> spokenLanguages;
-  final String status;
-  final String tagLine;
-  final String title;
-  final bool video;
-  final double voteAverage;
-  final int voteCount;
+  final int? budget;
+  final List<Genre>? genre;
+  final String? homePage;
+  final int? id;
+  final String? imdbId;
+  final String? originalLanguage;
+  final String? originalTitle;
+  final String? overview;
+  final double? popularity;
+  final String? posterPath;
+  final List<ProductionCompanies>? productionCompanies;
+  final List<ProductionCountry>? productionCountry;
+  final String? releaseDate;
+  final int? revenue;
+  final int? runtime;
+  final List<SpokenLanggues>? spokenLanguages;
+  final String? status;
+  final String? tagLine;
+  final String? title;
+  final bool? video;
+  final double? voteAverage;
+  final int? voteCount;
 
   MovieDetail(
-      {required this.adult,
-      required this.backdropPath,
+      { this.adult,
+       this.backdropPath,
       this.belongsToCollection,
-      required this.budget,
-      required this.genre,
-      required this.homePage,
-      required this.id,
-      required this.imdbId,
-      required this.originalLanguage,
-      required this.originalTitle,
-      required this.overview,
-      required this.popularity,
-      required this.posterPath,
-      required this.productionCompanies,
-      required this.productionCountry,
-      required this.releaseDate,
-      required this.revenue,
-      required this.runtime,
-      required this.spokenLanguages,
-      required this.status,
-      required this.tagLine,
-      required this.title,
-      required this.video,
-      required this.voteAverage,
-      required this.voteCount});
+       this.budget,
+       this.genre,
+       this.homePage,
+       this.id,
+       this.imdbId,
+       this.originalLanguage,
+       this.originalTitle,
+       this.overview,
+       this.popularity,
+       this.posterPath,
+       this.productionCompanies,
+       this.productionCountry,
+       this.releaseDate,
+       this.revenue,
+       this.runtime,
+       this.spokenLanguages,
+       this.status,
+       this.tagLine,
+       this.title,
+       this.video,
+       this.voteAverage,
+       this.voteCount});
 
   factory MovieDetail.fromJson(Map<String, dynamic> map) {
     return MovieDetail(
