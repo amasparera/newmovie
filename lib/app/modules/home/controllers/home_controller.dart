@@ -24,6 +24,7 @@ class HomeController extends GetxController {
     if (respone.statusCode == 200) {
       data = respone.listMovie!;
       loading = false;
+      getAll();
       update();
     } else {
       loading = false;

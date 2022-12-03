@@ -36,54 +36,57 @@ class HomeCard extends StatelessWidget {
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                  height: 100,
-                  width: 70,
-                  margin: const EdgeInsets.only(bottom: 4),
-                  decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: Colors.white),
-                      image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: NetworkImage(
-                              ApiApp.getImage(movie.posterPath))))),
-              Text(
-                movie.title,
-                style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16),
-              ),
-              const SizedBox(height: 2),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                // mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    "Rating : ",
-                    style: TextStyle(color: Colors.white, fontSize: 10),
-                  ),
-                  Text(
-                    movie.voteAverage,
-                    style: const TextStyle(color: AppColor.colorOrange, fontSize: 10),
-                  ),
-                  const SizedBox(width: 4),
-                  const Icon(
-                    Icons.visibility,
-                    color: AppColor.colorGrey,
-                    size: 12,
-                  ),
-                  const SizedBox(width: 4),
-                  Text(
-                    movie.popularity.toString(),
-                    style: const TextStyle(color: AppColor.colorGrey, fontSize: 10),
-                  )
-                ],
-              )
-            ],
+          child: Padding(
+            padding: const EdgeInsets.only(left: 4),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                    height: 100,
+                    width: 70,
+                    margin: const EdgeInsets.only(bottom: 4),
+                    decoration: BoxDecoration(
+                        border: Border.all(width: 1, color: Colors.white),
+                        image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(
+                                ApiApp.getImage(movie.posterPath))))),
+                Text(
+                  movie.title,
+                  style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16),
+                ),
+                const SizedBox(height: 2),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  // mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Rating : ",
+                      style: TextStyle(color: Colors.white, fontSize: 10),
+                    ),
+                    Text(
+                      movie.voteAverage,
+                      style: const TextStyle(color: AppColor.colorOrange, fontSize: 10),
+                    ),
+                    const SizedBox(width: 4),
+                    const Icon(
+                      Icons.visibility,
+                      color: AppColor.colorGrey,
+                      size: 12,
+                    ),
+                    const SizedBox(width: 4),
+                    Text(
+                      movie.popularity.toString(),
+                      style: const TextStyle(color: AppColor.colorGrey, fontSize: 10),
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),

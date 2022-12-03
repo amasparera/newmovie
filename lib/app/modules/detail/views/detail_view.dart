@@ -16,10 +16,6 @@ class DetailView extends GetView<DetailController> {
     final Movie data = Get.arguments;
     controller.addContext(context, data);
     return Scaffold(
-        floatingActionButton: FloatingActionButton(onPressed: () {
-          print(controller.detail.value.id);
-          print(controller.data!.id);
-        }),
         backgroundColor: AppColor.baseColor,
         body: Stack(
           children: [
@@ -45,7 +41,7 @@ class DetailView extends GetView<DetailController> {
                         padding: const EdgeInsets.only(top: 10),
                         color: AppColor.baseColor,
                         child: Obx(
-                          () => controller.loading
+                          () => controller.loading.value
                               ? Container(
                                   height: 40,
                                   color: AppColor.colorGrey,
@@ -88,7 +84,7 @@ class DetailView extends GetView<DetailController> {
                                         ),
                                         const SizedBox(width: 4),
                                         Text(
-                                          "${controller.detail.value.runtime.toString()} minutes",
+                                          "${controller.detail.value.runtime?.toString() ?? 0} minutes",
                                           style: const TextStyle(
                                               color: AppColor.colorGrey),
                                         ),
@@ -142,8 +138,8 @@ class DetailView extends GetView<DetailController> {
                                         ),
                                         const SizedBox(width: 12),
                                         Text(
-                                          DateFormat("dd MMMM yyy").format(
-                                              DateTime.parse(data.releaseDate)),
+                                        data.releaseDate !=null?  DateFormat("dd MMMM yyy").format(
+                                              DateTime.parse(data.releaseDate!)): "------",
                                           style: const TextStyle(
                                               color: AppColor.colorGrey),
                                         ),

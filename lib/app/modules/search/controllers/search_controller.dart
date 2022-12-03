@@ -18,20 +18,20 @@ class SearchController extends GetxController {
   List<Movie> data = [];
 
   void search(String text) async {
-    if (!connected) {
-      appSncakbar();
-      return;
-    }
     loading = true;
     update();
-    final respone = await movieImplament.search(text != "" ? text : "marvel");
-    if (respone.statusCode == 200) {
-      data = respone.listMovie!;
-      loading = false;
-      update();
+    if (connected) {
+      final respone = await movieImplament.search(text != "" ? text : "marvel");
+      if (respone.statusCode == 200) {
+        data = respone.listMovie!;
+        loading = false;
+        update();
+      } else {
+        loading = false;
+        update();
+      }
     } else {
-      loading = false;
-      update();
+      appSncakbar();
     }
   }
 
@@ -47,6 +47,7 @@ class SearchController extends GetxController {
           break;
         case InternetConnectionStatus.disconnected:
           connected = false;
+          appSncakbar();
           break;
       }
     });

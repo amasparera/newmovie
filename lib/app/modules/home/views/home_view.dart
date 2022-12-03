@@ -27,55 +27,58 @@ class HomeView extends GetView<HomeController> {
             ),
             GetBuilder<HomeController>(builder: (context) {
               return controller.loading
-                  ? Column(
-                      children: List.generate(
-                          3,
-                          (index) => Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                      height: 180,
-                                      width: 150,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(15),
-                                        color:
-                                            AppColor.colorGrey.withOpacity(.15),
-                                      ),
-                                      margin: const EdgeInsets.symmetric(
-                                          vertical: 8)),
-                                  const SizedBox(width: 12),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      Container(
-                                          height: 30,
-                                          width: 150,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(15),
-                                            color: AppColor.colorGrey
-                                                .withOpacity(.15),
-                                          ),
-                                          margin: const EdgeInsets.symmetric(
-                                              vertical: 8)),
-                                      Container(
-                                          height: 20,
-                                          width: 120,
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(15),
-                                            color: AppColor.colorGrey
-                                                .withOpacity(.15),
-                                          ),
-                                          margin: const EdgeInsets.symmetric(
-                                              vertical: 8)),
-                                    ],
-                                  ),
-                                ],
-                              )),
-                    )
+                  ? Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 18),
+                    child: Column(
+                        children: List.generate(
+                            3,
+                            (index) => Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                        height: 180,
+                                        width: 150,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(15),
+                                          color:
+                                              AppColor.colorGrey.withOpacity(.15),
+                                        ),
+                                        margin: const EdgeInsets.symmetric(
+                                            vertical: 8)),
+                                    const SizedBox(width: 12),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                            height: 30,
+                                            width: 150,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(15),
+                                              color: AppColor.colorGrey
+                                                  .withOpacity(.15),
+                                            ),
+                                            margin: const EdgeInsets.symmetric(
+                                                vertical: 8)),
+                                        Container(
+                                            height: 20,
+                                            width: 120,
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(15),
+                                              color: AppColor.colorGrey
+                                                  .withOpacity(.15),
+                                            ),
+                                            margin: const EdgeInsets.symmetric(
+                                                vertical: 8)),
+                                      ],
+                                    ),
+                                  ],
+                                )),
+                      ),
+                  )
                   : Column(
                       children: List.generate(
                           controller.data.length,

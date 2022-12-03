@@ -61,8 +61,8 @@ class CardSearch extends StatelessWidget {
                             style: TextStyle(color: Colors.white, fontSize: 10),
                           ),
                           Text(
-                            DateFormat("dd MMMM yyy")
-                                .format(DateTime.parse(movie.releaseDate)),
+                          movie.releaseDate !=null ?  DateFormat("dd MMMM yyy")
+                                .format(DateTime.parse(movie.releaseDate!)):"----",
                             style: const TextStyle(
                                 color: AppColor.colorOrange, fontSize: 10),
                           ),

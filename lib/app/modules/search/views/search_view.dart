@@ -19,6 +19,7 @@ class SearchView extends GetView<SearchController> {
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             child: TextField(
               onSubmitted: (value) => controller.search(value),
+              // onChanged: ((value) => controller.search(value)),
               autofocus: true,
               decoration: InputDecoration(
                   filled: true,

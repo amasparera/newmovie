@@ -14,11 +14,11 @@ class DetailController extends GetxController {
   final InternetConnectionChecker internetConnectionChecker;
   DetailController(this.movieImplament, this.internetConnectionChecker);
 
-  final detail = MovieDetail().obs;
+  var detail = MovieDetail().obs;
   Movie? data;
 
   bool connected = true;
-  bool loading = true;
+  var loading = true.obs;
   bool loadingRecomanded = true;
   bool loadingPopular = true;
   BuildContext? context;
@@ -28,7 +28,7 @@ class DetailController extends GetxController {
 
   void addContext(BuildContext value, Movie movie) {
     context = value;
-    if (connected = true) {
+    if (connected) {
       getDetail(movie.id);
       getPopular();
       getRecomanded();
@@ -40,11 +40,11 @@ class DetailController extends GetxController {
   void getDetail(int id) async {
     final respone = await movieImplament.getDetail(id.toString());
     if (respone.statusCode == 200) {
-      loading = false;
+      loading.value = false;
       detail.value = respone.movieDetail!;
       update();
     } else {
-      loading = false;
+      loading.value = false;
       ScaffoldMessenger.of(context!).showSnackBar(SnackBar(
         /// need to set following properties for best effect of awesome_snackbar_content
         elevation: 0,
@@ -94,6 +94,10 @@ class DetailController extends GetxController {
       switch (event) {
         case InternetConnectionStatus.connected:
           connected = true;
+          final movie = Get.arguments;
+          getDetail(movie.id);
+          getPopular();
+          getRecomanded();
           if (kDebugMode) {
             print('Data connection is available.');
           }

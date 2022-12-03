@@ -7,8 +7,8 @@ class Movie {
   final String originalTitle;
   final String overview;
   final double popularity;
-  final String posterPath;
-  final String releaseDate;
+  final String? posterPath;
+  final String? releaseDate;
   final String title;
   final bool video;
   final String voteAverage;
@@ -41,12 +41,12 @@ class Movie {
         originalLanguage: map["original_language"],
         originalTitle: map["original_title"],
         overview: map["overview"],
-        popularity: map["popularity"],
+        popularity: map["popularity"] ?? 0,
         posterPath: map["poster_path"],
         releaseDate: map["release_date"],
         title: map["title"],
         video: map["video"],
-        voteAverage: map["vote_average"].toString(),
+        voteAverage: map["vote_average"]?.toString() ?? "0",
         voteCount: map["vote_count"]);
   }
 }

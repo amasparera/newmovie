@@ -8,8 +8,14 @@ class ApiApp {
       "$baseurl/movie/$movieId/recommendations?api_key=$apiKey";
   static String getDetail(String movieId) =>
       "$baseurl/movie/$movieId?api_key=$apiKey";
-  static String getImage(String imageId) =>
-      "https://image.tmdb.org/t/p/w500/$imageId";
+  static String getImage(String? imageId) {
+    if (imageId != null) {
+      return "https://image.tmdb.org/t/p/w500/$imageId";
+    } else {
+      return "https://media.istockphoto.com/id/181144717/id/foto/pesan-galat.jpg?s=1024x1024&w=is&k=20&c=LmYNDpC2HlhRy2kyJPioAlo-Oj5x8zjTi2av_PZ_9h4=";
+    }
+  }
+
   static String search(String text) =>
       "$baseurl/search/movie?query=$text&api_key=$apiKey";
 }
