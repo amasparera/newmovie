@@ -10,7 +10,7 @@ void main() {
     GetMaterialApp(
       title: "Application",
       theme: ThemeData(
-          backgroundColor: AppColor.baseColor,
+          primaryColor: AppColor.baseColor,
           appBarTheme: const AppBarTheme(backgroundColor: AppColor.baseColor)),
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,

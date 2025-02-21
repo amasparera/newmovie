@@ -29,10 +29,9 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.DETAIL,
-      page: () => const DetailView(),
+      page: () =>  DetailView(),
       binding: DetailBinding(),
-      opaque: false,
-      preventDuplicates: false
+
     ),
   ];
 }

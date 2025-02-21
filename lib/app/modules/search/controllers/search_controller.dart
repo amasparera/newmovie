@@ -6,12 +6,11 @@ import '../../../const/snackbar.dart';
 import '../../../data/model/movie.dart';
 import '../../../domain/implementasi/movie_impl.dart';
 
-class SearchController extends GetxController {
-  final InternetConnectionChecker internetConnectionChecker;
+class XSearchController extends GetxController {
   final MovieImplament movieImplament;
   final count = 0.obs;
 
-  SearchController(this.internetConnectionChecker, this.movieImplament);
+  XSearchController( this.movieImplament);
 
   bool connected = true;
   bool loading = true;
@@ -37,20 +36,7 @@ class SearchController extends GetxController {
 
   @override
   void onInit() {
-    internetConnectionChecker.onStatusChange.listen((event) {
-      switch (event) {
-        case InternetConnectionStatus.connected:
-          connected = true;
-          if (kDebugMode) {
-            print('Data connection is available.');
-          }
-          break;
-        case InternetConnectionStatus.disconnected:
-          connected = false;
-          appSncakbar();
-          break;
-      }
-    });
+   
     super.onInit();
   }
 }

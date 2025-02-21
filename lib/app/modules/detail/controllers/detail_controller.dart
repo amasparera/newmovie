@@ -7,17 +7,15 @@ import 'package:newmovie/app/data/model/movie.dart';
 import 'package:newmovie/app/data/model/movie_detail.dart';
 import 'package:newmovie/app/domain/implementasi/movie_impl.dart';
 
-import '../../../const/snackbar.dart';
 
 class DetailController extends GetxController {
   final MovieImplament movieImplament;
-  final InternetConnectionChecker internetConnectionChecker;
-  DetailController(this.movieImplament, this.internetConnectionChecker);
+  DetailController(this.movieImplament);
 
   var detail = MovieDetail().obs;
   Movie? data;
 
-  bool connected = true;
+
   var loading = true.obs;
   bool loadingRecomanded = true;
   bool loadingPopular = true;
@@ -28,13 +26,11 @@ class DetailController extends GetxController {
 
   void addContext(BuildContext value, Movie movie) {
     context = value;
-    if (connected) {
+ 
       getDetail(movie.id);
       getPopular();
       getRecomanded();
-    } else {
-      appSncakbar();
-    }
+ 
   }
 
   void getDetail(int id) async {
@@ -89,26 +85,7 @@ class DetailController extends GetxController {
   }
 
   @override
-  void onInit() {
-    internetConnectionChecker.onStatusChange.listen((event) {
-      switch (event) {
-        case InternetConnectionStatus.connected:
-          connected = true;
-          final movie = Get.arguments;
-          getDetail(movie.id);
-          getPopular();
-          getRecomanded();
-          if (kDebugMode) {
-            print('Data connection is available.');
-          }
-          break;
-        case InternetConnectionStatus.disconnected:
-          connected = false;
-
-          break;
-      }
-    });
-
+  void onInit() { 
     super.onInit();
   }
 }

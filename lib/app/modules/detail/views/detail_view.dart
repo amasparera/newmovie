@@ -10,10 +10,14 @@ import '../../../widget/card_detail.dart';
 import '../controllers/detail_controller.dart';
 
 class DetailView extends GetView<DetailController> {
-  const DetailView({Key? key}) : super(key: key);
+   DetailView({Key? key}) : super(key: key);
+final Movie data = Get.arguments;
+  @override
+  // TODO: implement tag
+  String? get tag => data.id.toString();
   @override
   Widget build(BuildContext context) {
-    final Movie data = Get.arguments;
+    
     controller.addContext(context, data);
     return Scaffold(
         backgroundColor: AppColor.baseColor,

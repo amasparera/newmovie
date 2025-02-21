@@ -6,7 +6,7 @@ import 'package:newmovie/app/const/app_color.dart';
 import '../../../widget/card_search.dart';
 import '../controllers/search_controller.dart';
 
-class SearchView extends GetView<SearchController> {
+class SearchView extends GetView<XSearchController> {
   const SearchView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class SearchView extends GetView<SearchController> {
                       color: AppColor.baseColor.withOpacity(.4), fontSize: 12)),
             ),
           ),
-          Expanded(child: GetBuilder<SearchController>(builder: (context) {
+          Expanded(child: GetBuilder<XSearchController>(builder: (context) {
             return controller.loading
                 ? ListView.builder(
                     padding: EdgeInsets.symmetric(horizontal: 18),

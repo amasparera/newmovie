@@ -25,6 +25,17 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
+// apply plugin: 'com.android.application'
+// apply plugin: 'kotlin-android'
+// apply plugin: 'app_plugin_loader'
+
+// plugins {
+//     id 'com.android.application'
+//     id 'kotlin-android'
+//     id 'app_plugin_loader'
+// }
+
+
 android {
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion

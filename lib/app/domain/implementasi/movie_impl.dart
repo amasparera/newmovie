@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
-
 import 'package:http/http.dart';
 import 'package:newmovie/app/const/api_app.dart';
 import 'package:newmovie/app/data/model_respon/respone_movie.dart';
@@ -17,7 +15,6 @@ class MovieImplament implements MovieRepository {
 
     final respone = await client.get(api);
     final json = jsonDecode(respone.body);
-    log(json.toString());
 
     if (respone.statusCode == 200) {
       return ResponseMovie.fromJson(json);
@@ -34,7 +31,6 @@ class MovieImplament implements MovieRepository {
     final respone = await client.get(api);
     final json = jsonDecode(respone.body);
 
-    log(json.toString());
 
     if (respone.statusCode == 200) {
       return ResponseMovieDetail.fromJson(json);
@@ -50,7 +46,6 @@ class MovieImplament implements MovieRepository {
 
     final respone = await client.get(api);
     final json = jsonDecode(respone.body);
-    log(json.toString());
 
     if (respone.statusCode == 200) {
       return ResponseMovie.fromJson(json);
@@ -67,7 +62,6 @@ class MovieImplament implements MovieRepository {
     final respone = await client.get(api);
     final json = jsonDecode(respone.body);
     
-    log(json.toString());
 
     if (respone.statusCode == 200) {
       return ResponseMovie.fromJson(json);
@@ -84,7 +78,6 @@ class MovieImplament implements MovieRepository {
     final respone = await client.get(api);
     final json = jsonDecode(respone.body);
     
-    log(json.toString());
 
     if (respone.statusCode == 200) {
       return ResponseMovie.fromJson(json);
